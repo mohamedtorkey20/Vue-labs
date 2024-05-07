@@ -20,6 +20,10 @@ const routes=[
      component:AddPost
     },
     {
+     path:'/addmovie/:id',
+     component:AddPost
+    },
+    {
         path:'/Movies',
         component:MoviesComponent
     },

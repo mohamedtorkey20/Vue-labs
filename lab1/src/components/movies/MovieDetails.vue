@@ -13,6 +13,7 @@
                         
                         <a :href="movie.imdb_url" target="_blank" rel="noopener noreferrer" class="btn mx-1" style="background-color: #6C0345; color: #FFF8DC;">Watch Movie</a>
                         <button  class="btn mx-1" style="background-color: #6C0345; color: #FFF8DC;"  @click="removeMovie(movie.id)">Delete</button>
+                        <router-link class="btn" style="background-color: #6C0345; color: #FFF8DC;"  :to="`/addmovie/${movie.id}`">Update</router-link>
 
                     </div>
     
@@ -38,21 +39,18 @@ export default {
         this.id = this.$route.params.id;
         console.log(this.id);
 		this.GetMovieByID();
-      
-  
   
 	},
     methods: {
 		async GetMovieByID() {
 			this.movie = await this.getMovie(this.id);
 		},
-
     async removeMovie(id){
       await this.deleteMovie(id)
       this.$router.push("/Movies")
   
-    }
-    }
+      },
+    },
 };
 </script>
 

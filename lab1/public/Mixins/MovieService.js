@@ -30,6 +30,15 @@ export default {
 			.catch(err=>{
 				console.error(err);
 			})
+		},
+		async updateMovie(id,newMovie){
+			await axios.put(`http://localhost:3000/Movies/${id}`,newMovie)
+			.then(res=> {
+				console.log("Movie Updated Successfully", res.data);
+			})
+			.catch(err=>{
+				console.error(err);
+			})
 		}
 
 	
